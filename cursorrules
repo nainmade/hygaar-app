@@ -1,0 +1,70 @@
+# Cursor rules — Hygaar
+
+## Project
+Hygaar — AI-powered ecommerce content generation platform. React + Vite + Tailwind CSS v4 + TypeScript (loose). No backend yet — mock data only.
+
+## Stack
+- React (functional components, hooks only)
+- Vite (dev server + build)
+- TypeScript — loose, not strict
+- Tailwind CSS v4 for layout and structure only
+- CSS custom properties (design tokens) for all colour, spacing, typography, radius
+- No routing yet — add React Router when needed
+
+## Design system
+- Hygaar UI-Kit — customised Untitled UI
+- Display font: Onest (Semibold, Medium) via `var(--font-family-display)`
+- Body font: Inter (Regular) via `var(--font-family-body)`
+- Token file: `src/styles/tokens.css` — imported globally
+- Design file: Hygaar-UX-2026 — https://www.figma.com/design/nGtRTNLCg65g8CO0vFFpWP/Hygaar-UX-2026?node-id=252-1504&t=4Nvgvkcax2FbbA3D-1
+  Use for implementing screens and flows
+- Design system: Hygaar UI-Kit — https://www.figma.com/design/TghDlRFDyXhziDatah5kVI/%E2%9D%96-Hygaar-UI%E2%80%93Kit?node-id=16-399&t=gGmO9C6cCLb2ihqT-1
+  Use for component structure, token values, and variants
+
+## Token rules
+- Never hardcode colour, spacing, typography, or radius values
+- Always use `var(--token-name)` — never raw hex, px, or rem values
+- Token tier priority: component > semantic > primitive
+- If a token is missing, comment `/* TODO: missing token */` and use the closest semantic token
+- Never create a new token — flag as a design gap instead
+
+## Tailwind v4
+- Use for layout only: flex, grid, positioning, overflow, display
+- Never use Tailwind for: colours, spacing values, font sizes, border radius — use tokens instead
+- No arbitrary values like `w-[347px]` — if needed repeatedly, it belongs in the token file
+
+## Code style
+- Functional components only — no class components
+- Named exports over default exports
+- One component per file
+- Props destructured in the function signature
+- Component names must match Figma component names exactly
+- TypeScript interfaces for all props — keep them simple
+
+## Async states — always design for all four
+Every component that fetches or processes data needs:
+- Loading state
+- Error state
+- Empty state
+- Populated state
+
+This is non-negotiable for Hygaar — the product is built on async agent workflows.
+
+## Component patterns
+- Match Untitled UI / Hygaar UI-Kit component API exactly
+- Build from existing components before creating new ones
+- Ask before creating a component that does not exist in the Figma library
+- Keep components small and single-purpose
+
+## Mock data
+- All data lives in `src/data/` as static JSON or TypeScript constants
+- No API calls in prototype — stub everything
+- Mock data should be realistic — real SKU names, real-looking image URLs, real agent status messages
+
+## What to avoid
+- Inline styles
+- Hardcoded values of any kind
+- Default exports on components
+- Class components
+- Overly complex solutions — this is a prototype
+- UI patterns that ignore async/loading/error states
