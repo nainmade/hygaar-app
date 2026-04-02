@@ -9,9 +9,9 @@ export default function Button({ variant = 'primary', children, className, ...pr
     <button
       className={`relative flex items-center justify-center overflow-hidden w-full cursor-pointer ${className ?? ''}`}
       style={{
-        height: 44,
+        minHeight: 'calc(var(--spacing-5xl) + var(--spacing-xs))',
         gap: 'var(--spacing-xs)',
-        padding: '10px 14px',
+        padding: 'calc(var(--spacing-md) + var(--spacing-xxs)) calc(var(--spacing-xl) - var(--spacing-xxs))',
         borderRadius: 'var(--radius-md)',
         border: '2px solid rgba(255, 255, 255, 0.12)',
         boxShadow: [

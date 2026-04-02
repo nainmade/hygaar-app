@@ -74,7 +74,8 @@ function GoogleButton() {
       className="relative flex items-center justify-center w-full overflow-hidden cursor-pointer"
       style={{
         gap: 'var(--spacing-lg)',
-        padding: '10px var(--spacing-xl)',
+        minHeight: 'calc(var(--spacing-5xl) + var(--spacing-xs))',
+        padding: 'calc(var(--spacing-md) + var(--spacing-xxs)) var(--spacing-xl)',
         borderRadius: 'var(--radius-md)',
         border: '1px solid var(--color-border-primary)',
         boxShadow: [
@@ -189,7 +190,16 @@ export default function SignIn() {
               required
               autoComplete="email"
               leadingIcon={
-                <img src={imgMailIcon} alt="" style={{ width: 20, height: 20 }} />
+                <img
+                  src={imgMailIcon}
+                  alt=""
+                  className="block shrink-0"
+                  style={{
+                    width: 'var(--spacing-2xl)',
+                    height: 'var(--spacing-2xl)',
+                    objectFit: 'contain',
+                  }}
+                />
               }
             />
 
@@ -200,10 +210,28 @@ export default function SignIn() {
               required
               autoComplete="current-password"
               leadingIcon={
-                <img src={imgLockIcon} alt="" style={{ width: 20, height: 20 }} />
+                <img
+                  src={imgLockIcon}
+                  alt=""
+                  className="block shrink-0"
+                  style={{
+                    width: 'var(--spacing-2xl)',
+                    height: 'var(--spacing-2xl)',
+                    objectFit: 'contain',
+                  }}
+                />
               }
               trailingIcon={
-                <img src={imgHelpIcon} alt="Password hint" style={{ width: 16, height: 16 }} />
+                <img
+                  src={imgHelpIcon}
+                  alt="Password hint"
+                  className="block shrink-0"
+                  style={{
+                    width: 'var(--spacing-xl)',
+                    height: 'var(--spacing-xl)',
+                    objectFit: 'contain',
+                  }}
+                />
               }
             />
 
